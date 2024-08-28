@@ -1,0 +1,13 @@
+<form method='POST'>
+    {% csrf_token %}
+    <p>{{ form.non_fields_errors }}</p>
+    <p>{{ form.user.label }}{{ form.user }}</p>
+    <p><label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label>{{ form.title }}</p>
+    <p>{{ form.slug.label }}{{ form.slug }}</p> 
+        {% if form.slug.errors %}
+        <div style="color:red">{{ form.slug.errors }}</div>
+        {% endif %}
+    <p>{{ form.content.label }}{{ form.content }}</p>
+    <p>{{ form.image.label }}{{ form.image }}</p>
+    <p><input type="submit" value="Submit"/></p>
+</form>

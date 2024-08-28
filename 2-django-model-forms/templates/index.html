@@ -31,12 +31,14 @@
     </form> {% endcomment %}
 
 
-
-    <form method="POST" action="">
+    {% comment %} Showing form as paragraph {% endcomment %}
+    {% comment %} <form method="POST" action="">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Search"/>
-    </form>
-
+    </form> {% endcomment %}
+    {% comment %} Rnder fields manually {% endcomment %}
+    
+    {% include "forms.html" with form=form %}
 
 {% endblock content %}
