@@ -53,6 +53,7 @@ class Passenger(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE) # all the records will be deleted with user delation
     # user = models.ForeignKey(User, on_delete=models.PROTECT) # cannot delete user
     user = models.ForeignKey(User, on_delete=models.SET(set_delete_user), limit_choices_to=limit_choices_to)
+    updated_by = models.ForeignKey(User,related_name='updated_car_user', on_delete=models.SET_NULL, null=True, blank=True)
     car     = models.CharField(max_length=120)
 
     def __str__(self):
