@@ -13,3 +13,14 @@ class Car(models.Model):
 
     def __str__(self):
         return self.car
+    
+class Driver(models.Model): 
+    """
+    ForeignKey = ManyToOneField()   
+    Many User have nay car, but a car only have 1 user
+    """
+    user    = models.ManyToManyField(User)
+    car     = models.CharField(max_length=120)
+
+    def __str__(self):
+        return self.car
